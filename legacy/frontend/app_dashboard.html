@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardian Shield | Cyber Defense</title>
+    <link rel="stylesheet" href="style.css?v=7">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <i class="fas fa-shield-halved"></i>
+                <div class="brand-text">
+                    <span>GUARDIAN</span>
+                    <span>SHIELD</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-view="dashboard">
+                    <i class="fas fa-chart-line"></i> Dashboard
+                </a>
+                <a href="#" class="nav-item" data-view="cyber-assist">
+                    <i class="fas fa-user-shield"></i> Cyber Assist
+                </a>
+                <a href="#" class="nav-item" data-view="phishing">
+                    <i class="fas fa-link"></i> Phishing Guard
+                </a>
+                <a href="#" class="nav-item" data-view="app-sentinel">
+                    <i class="fas fa-android"></i> App Sentinel
+                </a>
+                <a href="#" class="nav-item" data-view="voice-shield">
+                    <i class="fas fa-phone-slash"></i> Voice Shield
+                </a>
+                <a href="#" class="nav-item" data-view="qr-analyzer">
+                    <i class="fas fa-qrcode"></i> QR Analyzer
+                </a>
+                <a href="#" class="nav-item" data-view="secure-vault">
+                    <i class="fas fa-lock"></i> Secure Vault
+                </a>
+            </nav>
+
+            <div class="mode-switch">
+                <span>MODE:</span>
+                <div class="toggle-btn">
+                    <span class="civilian">CIVILIAN</span>
+                    <span class="military active">MILITARY</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="status-indicator">
+                    <span class="dot"></span> SYSTEM ONLINE
+                </div>
+                <div class="user-profile">
+                    <div id="authSection">
+                        <a href="#" id="loginBtn"><i class="fas fa-user"></i> Login</a>
+                    </div>
+                    <div id="userSection" class="hidden">
+                        <i class="fas fa-user-circle"></i> <span id="userName">Admin</span>
+                        <button id="logoutBtn" class="btn-icon"><i class="fas fa-sign-out-alt"></i></button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard View -->
+            <div id="dashboard-view" class="view-section active">
+                <div class="section-header">
+                    <div class="accent-line"></div>
+                    <h1>Threat Intelligence Overview</h1>
+                </div>
+
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <h3>Risk Level</h3>
+                        <p class="highlight-green">LOW</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Scans Today</h3>
+                        <p>142</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Threats Blocked</h3>
+                        <p>3</p>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <h3><i class="fas fa-map"></i> Live Threat Map</h3>
+                    <div class="map-placeholder">
+                        <div class="radar-scan"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cyber Assist View -->
+            <div id="cyber-assist-view" class="view-section hidden">
+                <div class="section-header">
+                    <div class="accent-line"></div>
+                    <h1>Cyber Emergency Assist</h1>
+                </div>
+
+                <div class="assist-grid">
+                    <div class="assist-card" onclick="showIncidentForm('UPI Fraud')">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h3>UPI / Bank Fraud</h3>
+                        <p>Report unauthorized transactions immediately.</p>
+                    </div>
+                    <div class="assist-card" onclick="showIncidentForm('Phishing')">
+                        <i class="fas fa-envelope-open-text"></i>
+                        <h3>Phishing Scam</h3>
+                        <p>Report suspicious links or messages.</p>
+                    </div>
+                    <div class="assist-card" onclick="showIncidentForm('Identity Theft')">
+                        <i class="fas fa-id-card"></i>
+                        <h3>Identity Theft</h3>
+                        <p>Report impersonation or data leaks.</p>
+                    </div>
+                    <div class="assist-card emergency" onclick="activateEmergencyMode()">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Emergency Mode</h3>
+                        <p>Lock down device and block calls.</p>
+                    </div>
+                </div>
+
+                <h2>Report Incident</h2>
+                <form id="incidentForm">
+                    <input type="hidden" id="incidentCategory">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <input type="text" id="displayCategory" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="incidentSummary" rows="4" placeholder="Describe what happened..."
+                            required></textarea>
+                    </div>
+                    <button type="button" id="aiAnalyzeBtn" class="btn-secondary">Run AI Analysis</button>
+                    <div id="aiAnalysisResult" class="hidden"></div>
+                    <button type="submit" class="btn-primary">Submit Report</button>
+                </form>
+            </div>
+
+            <!-- Phishing Guard View -->
+            <div id="phishing-view" class="view-section hidden">
+                <div class="section-header">
+                    <div class="accent-line"></div>
+                    <h1>Phishing Guard</h1>
+                </div>
+
+                <div class="module-tabs">
+                    <button class="module-tab active" data-tab="message">Scan Message</button>
+                    <button class="module-tab" data-tab="url">URL Safety</button>
+                </div>
+
+                <!-- Message Scan Tab -->
+                <div id="phishing-message-tab" class="tab-content active">
+                    <div class="tool-container">
+                        <textarea id="phishingText" rows="6" placeholder="Paste suspicious message here..."
+                            class="cyber-textarea"></textarea>
+                        <button id="btn-phishing-text" class="btn-primary">Scan Message</button>
+                    </div>
+                    <div id="phishingTextResult" class="result-box hidden"></div>
+                </div>
+
+                <!-- URL Scan Tab -->
+                <div id="phishing-url-tab" class="tab-content hidden">
+                    <div class="tool-container">
+                        <div class="input-group">
+                            <input type="text" id="phishingUrl" placeholder="Enter suspicious URL..."
+                                class="cyber-input">
+                            <button id="btn-phishing-url" class="btn-primary">Scan URL</button>
+                        </div>
+                        <div id="phishingUrlResult" class="result-box hidden"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- App Sentinel View -->
+            <div id="app-sentinel-view" class="view-section hidden">
+                <div class="section-header">
+                    <div class="accent-line"></div>
+                    <h1>App Sentinel (File Scanner)</h1>
+                </div>
+                <div class="tool-container">
+                    <div class="qr-upload-area" id="appDropZone">
+                        <i class="fas fa-file-shield"></i>
+                        <h3>Upload File to Scan</h3>
+                        <p>Drag & Drop or Click to Upload (APK, EXE, PDF, etc.)</p>
+                        <input type="file" id="appFileInput" hidden>
+                        <button class="btn-secondary" onclick="document.getElementById('appFileInput').click()">Select
+                            File</button>
+                    </div>
+                    <div id="appScanResult" class="result-box hidden"></div>
+                </div>
+            </div>
+
+            <!-- Voice Shield View -->
+            <div id="voice-shield-view" class="view-section hidden">
+                <div class="section-header">
+                    <div class="accent-line"></div>
+                    <h1>Voice Shield</h1>
+                </div>
+                <div class="tool-container">
+                    <h3>Check Caller ID</h3>
+                    <div class="input-group">
+                        <input type="tel" id="callerNumber" placeholder="+91 98765 43210" class="cyber-input">
+                        <button id="btn-voice-check" class="btn-primary">Check Number</button>
+                    </div>
+                    <div id="callerResult" class="result-box hidden"></div>
+                </div>
+
+                <div class="recent-incidents">
+                    <h3>Recent Call Logs</h3>
+                    <div id="callLogsList" class="call-log"></div>
+                </div>
+            </div>
+
+            <!-- QR Analyzer View -->
+            <div id="qr-analyzer-view" class="view-section hidden">
+                <div class="section-header">
+                    <div class="accent-line"></div>
+                    <h1>QR Analyzer</h1>
+                </div>
+
+                <div class="qr-upload-area" id="qrDropZone">
+                    <i class="fas fa-qrcode"></i>
+                    <h3>Upload QR Code Image</h3>
+                    <p>Drag & Drop or Click to Upload</p>
+                    <input type="file" id="qrInput" hidden accept="image/*">
+                    <button class="btn-secondary" onclick="document.getElementById('qrInput').click()">Select
+                        File</button>
+                </div>
+
+                <div id="qrResult" class="result-box hidden"></div>
+            </div>
+
+            <!-- Secure Vault View -->
+            <div id="secure-vault-view" class="view-section hidden">
+                <div class="section-header">
+                    <div class="accent-line"></div>
+                    <h1>Secure Vault</h1>
+                </div>
+
+                <div class="module-actions">
+                    <button id="btn-vault-add" class="btn-primary"><i class="fas fa-plus"></i> Add Item</button>
+                </div>
+
+                <div id="vaultGrid" class="vault-grid"></div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal hidden">
+        <div class="modal-content auth-modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-target="loginForm">Login</button>
+                <button class="auth-tab" data-target="signupForm">Sign Up</button>
+                <button class="auth-tab hidden" data-target="forgotForm" id="forgotTab">Forgot</button>
+            </div>
+
+            <form id="loginForm" class="auth-form active">
+                <div class="form-group">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                </div>
+                <div style="text-align: right; margin-bottom: 10px;">
+                    <a href="#" id="showForgotBtn"
+                        style="color: #00f2ff; font-size: 0.8em; text-decoration: none;">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+
+            <form id="signupForm" class="auth-form hidden">
+                <div class="form-group">
+                    <input type="text" id="signupName" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="signupEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="signupPassword" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn-primary">Sign Up</button>
+            </form>
+
+            <form id="forgotForm" class="auth-form hidden">
+                <p style="color: #ccc; font-size: 0.9em; margin-bottom: 15px;">Enter your email to receive a reset link.
+                </p>
+                <div class="form-group">
+                    <input type="email" id="forgotEmail" placeholder="Email" required>
+                </div>
+                <button type="submit" class="btn-primary">Send Reset Link</button>
+                <div style="text-align: center; margin-top: 10px;">
+                    <a href="#" class="backToLogin" style="color: #00f2ff; font-size: 0.8em;">Back to Login</a>
+                </div>
+            </form>
+
+            <form id="resetForm" class="auth-form hidden">
+                <div class="form-group">
+                    <input type="password" id="newPassword" placeholder="New Password" required>
+                </div>
+                <button type="submit" class="btn-primary">Update Password</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Incident Modal -->
+    <div id="incidentModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Report Incident</h2>
+        </div>
+    </div>
+
+    <!-- AI Chat Bot Widget -->
+    <div id="chat-widget-btn" class="chat-widget-btn">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <div id="chat-widget-window" class="chat-widget-window hidden">
+        <div class="chat-header">
+            <h3><i class="fas fa-robot"></i> Guardian AI</h3>
+            <span id="close-chat-btn" class="close-chat">&times;</span>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+            <div class="message bot-message">
+                Hello! I am your cyber guardian. How can I help you protect yourself today?
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Ask about safety..." />
+            <button id="send-chat-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Vault Modal -->
+    <div id="vaultModal" class="modal hidden">
+        <div class="modal-content">
+            <span id="btn-vault-close" class="close-modal">&times;</span>
+            <h2>Add to Vault</h2>
+            <form id="vaultForm">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="vaultTitle" required>
+                </div>
+                <div class="form-group">
+                    <label>Type</label>
+                    <select id="vaultType" class="cyber-input">
+                        <option value="PASSWORD">Password</option>
+                        <option value="NOTE">Secure Note</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Content</label>
+                    <textarea id="vaultContent" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Encrypt & Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js?v=5"></script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+{
+    "app_name": "Guardian Shield",
+    "version": "2.0",
+    "role": "Cybersecurity Assistant",
+    "features": {
+        "Phishing Guard": {
+            "description": "Analyzes URLs and SMS messages for scam indicators using Google Safe Browsing and AI analysis.",
+            "how_to_use": "Go to the Phishing Guard tab, paste a URL or text message, and click Scan."
+        },
+        "Cyber Assist": {
+            "description": "Provides immediate guidance for cyber incidents like UPI fraud, Identity theft, or Social Media hacking.",
+            "how_to_use": "Select the type of incident in the Cyber Assist tab to get a step-by-step action plan."
+        },
+        "App Sentinel": {
+            "description": "Scans files (APK, EXE, PDF) for malware signatures using VirusTotal.",
+            "how_to_use": "Upload a file in the App Sentinel tab to check if it's malicious."
+        },
+        "Voice Shield": {
+            "description": "Helps identify spam callers and potential voice deepfakes (simulation mode).",
+            "how_to_use": "Enter a phone number to check its reputation score."
+        },
+        "Secure Vault": {
+            "description": "A secure, encrypted storage for passwords and sensitive notes.",
+            "how_to_use": "Use the Secure Vault tab to add or retrieve encrypted items."
+        },
+        "QR Analyzer": {
+            "description": "Decodes QR codes and checks the embedded links for safety before you open them.",
+            "how_to_use": "Upload a QR code image to analyze its content safety."
+        }
+    },
+    "emergency_contacts": {
+        "Cyber Crime Helpline": "1930 (India)",
+        "Emergency": "112"
+    },
+    "general_advice": [
+        "Never share your OTP or UPI PIN with anyone.",
+        "Enable Two-Factor Authentication (2FA) on all accounts.",
+        "Do not click on links from unknown numbers.",
+        "Verify caller identity before transferring money."
+    ]
+}

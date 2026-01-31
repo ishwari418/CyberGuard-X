@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardian Shield - Authentication</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <i class="fas fa-shield-halved logo-icon"></i>
+                <h2>Guardian Shield</h2>
+                <p>Secure Access Portal</p>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active">
+                <h3>Welcome Back</h3>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="loginEmail" placeholder="Email Address" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                </div>
+                <div class="forgot-pass-link" style="text-align: right; margin-bottom: 15px;">
+                    <a href="#" id="showForgot" style="color: #00f2ff; text-decoration: none; font-size: 0.9em;">Forgot
+                        Password?</a>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+                <p class="switch-text">Don't have an account? <a href="#" id="showSignup">Sign Up</a></p>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signupForm" class="auth-form">
+                <h3>Create Account</h3>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="signupUsername" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="signupEmail" placeholder="Email Address" required>
+                </div>
+                <!-- Phone is not in User model yet, keeping field but might need ignored by backend or added to model -->
+                <div class="input-group">
+                    <i class="fas fa-phone"></i>
+                    <input type="tel" id="signupPhone" placeholder="Phone Number">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="signupPassword" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn-primary">Sign Up</button>
+                <p class="switch-text">Already have an account? <a href="#" id="showLogin">Login</a></p>
+            </form>
+
+            <!-- Forgot Password Form -->
+            <form id="forgotForm" class="auth-form">
+                <h3>Reset Password</h3>
+                <p style="color: #aaa; font-size: 0.9em; margin-bottom: 20px;">Enter your email to receive a reset link.
+                </p>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="forgotEmail" placeholder="Email Address" required>
+                </div>
+                <button type="submit" class="btn-primary">Send Reset Link</button>
+                <p class="switch-text"><a href="#" id="backToLoginForgot">Back to Login</a></p>
+            </form>
+
+            <!-- Reset Password Form -->
+            <form id="resetForm" class="auth-form">
+                <h3>New Password</h3>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="newPassword" placeholder="New Password" required>
+                </div>
+                <button type="submit" class="btn-primary">Update Password</button>
+                <p class="switch-text"><a href="#" id="backToLoginReset">Back to Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardian Shield - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-shield-halved"></i> Guardian Shield
+        </div>
+        <div class="nav-user">
+            <span id="userName">Loading...</span>
+            <button id="logoutBtn" class="btn-sm"><i class="fas fa-sign-out-alt"></i></button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="dashboard-header">
+            <h1>Cyber Emergency Assist</h1>
+            <p>Report incidents, track status, and get immediate help.</p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-file-alt"></i>
+                <h3 id="incidentCount">0</h3>
+                <p>Active Incidents</p>
+            </div>
+            <div class="stat-card warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Emergency</h3>
+                <p>Mode Available</p>
+            </div>
+            <div class="stat-card success">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Protected</h3>
+                <p>Status Active</p>
+            </div>
+        </div>
+
+        <div class="action-bar">
+            <a href="incident.html" class="btn-primary"><i class="fas fa-plus"></i> Report New Incident</a>
+            <button class="btn-secondary" onclick="alert('Emergency Mode Activated: Stay Calm. Do not share OTPs.')"><i
+                    class="fas fa-bell"></i> Emergency Mode</button>
+        </div>
+
+        <section class="incidents-list">
+            <h2>Recent Reports</h2>
+            <div id="incidentsContainer" class="incidents-grid">
+                <!-- Incidents will be loaded here -->
+                <div class="loading-spinner">Loading...</div>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

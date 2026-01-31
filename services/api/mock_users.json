@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "mock_id_1766586906768",
+    "username": "Ishwari",
+    "email": "ishwaribelhekar29@gmail.com",
+    "password": "$2a$10$p6OSMEPPLjAqhV9KLPV7Gur3JrJs0t64PHslSYYsGkNTAtys8Yet.",
+    "createdAt": "2025-12-24T14:35:06.769Z",
+    "resetPasswordToken": "1290a604f1b106e2fc60c82d13248694c37a79dec27d0674af08fdc6ad074976",
+    "resetPasswordExpire": 1766598807216
+  },
+  {
+    "_id": "mock_id_1769876711633",
+    "username": "Ishwari",
+    "email": "ishwaribelhekar11@gmail.com",
+    "password": "$2a$10$q04cFv0x9kObrRBMBcT.FuGiLjMVxISZaIcef1cCPgFTD9eFyuQA2",
+    "createdAt": "2026-01-31T16:25:11.634Z"
+  }
+]

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Incident - Guardian Shield</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="dashboard.html"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="wizard-container">
+            <h2>Report Cyber Incident</h2>
+            <form id="incidentForm">
+                <div class="form-group">
+                    <label>Incident Category</label>
+                    <select id="category" required>
+                        <option value="">Select Category</option>
+                        <option value="UPI Fraud">UPI Fraud / Mistaken Transfer</option>
+                        <option value="Phishing">WhatsApp / SMS Phishing</option>
+                        <option value="Job Scam">Fake Job Scam</option>
+                        <option value="Identity Theft">Identity Theft</option>
+                        <option value="Social Hack">Social Media Hacked</option>
+                        <option value="Other">Other Cyber Crime</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Incident Summary</label>
+                    <textarea id="summary" rows="5" placeholder="Describe what happened..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Evidence (Optional)</label>
+                    <input type="file" id="evidenceFile">
+                    <small>Upload screenshots or PDFs.</small>
+                </div>
+
+                <div class="ai-check-section">
+                    <button type="button" id="aiCheckBtn" class="btn-secondary">
+                        <i class="fas fa-robot"></i> Run AI Risk Analysis
+                    </button>
+                    <div id="aiResult" class="ai-result hidden"></div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Submit Report</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/incident.js"></script>
+</body>
+
+</html>
