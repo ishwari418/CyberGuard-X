@@ -4,7 +4,7 @@ import os
 import json
 
 # The Key provided by the user
-API_KEY = "AIzaSyAXk9rw8otEWVJw_MmyDxLGGh5WxGj9Q9Q"
+API_KEY = ""
 
 print(f"1. Configuring Gemini with Key: {API_KEY[:5]}...{API_KEY[-5:]}")
 genai.configure(api_key=API_KEY)
