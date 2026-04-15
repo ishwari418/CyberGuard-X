@@ -5,17 +5,17 @@ Guardian Shield is a comprehensive, enterprise-grade cybersecurity solution desi
 
 ---
 
-## 🌟 Vision & Purpose
+##  Vision & Purpose
 In an era of rapidly evolving cyber threats, Guardian Shield aims to democratize high-level security. Our goal is to provide individuals and organizations with the tools they need to identify, analyze, and neutralize threats before they cause harm.
 
-## 🚀 Core Security Modules
+##  Core Security Modules
 
-### 🔍 Phishing Guard
+###  Phishing Guard
 - **Heuristic AI Analysis**: Utilizes Gemini 1.5 Flash to analyze text for emotional manipulation, urgency, and fraud patterns.
 - **Deep URL Inspection**: Integrates with VirusTotal and Google Safe Browsing to cross-reference URLs against millions of known malicious domains.
 - **Zero-Day Detection**: Identifies brand new phishing patterns (typosquatting, homoglyph attacks) using sophisticated AI heuristics.
 
-### 📱 Voice Shield
+###  Voice Shield
 - **Real-Time Caller ID**: Instantly identifies callers and maps them to carriers and geographical locations.
 - **Spam Detection**: Cross-references numbers against community-driven spam databases.
 - **Carrier Attribution**: Provides details on the registered SIM carrier and state-level registration info for Indian numbers.
@@ -24,7 +24,7 @@ In an era of rapidly evolving cyber threats, Guardian Shield aims to democratize
 - **Multi-Engine Analysis**: Scans uploaded files/APKs against 60+ antivirus engines via VirusTotal.
 - **Static Analysis**: Identifies suspicious permissions and code patterns within mobile applications.
 
-### 🔐 Secure Vault
+###  Secure Vault
 - **AES-256 Encryption**: Highly secure storage for passwords, notes, and sensitive credentials.
 - **Zero-Knowledge Architecture**: In its real-mode, data is encrypted locally before reaching the database.
 
@@ -34,7 +34,7 @@ In an era of rapidly evolving cyber threats, Guardian Shield aims to democratize
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 Guardian Shield utilizes a **Hybrid Microservices Architecture** to ensure high availability and performance.
 
@@ -75,7 +75,7 @@ guardian-shield/
 
 ---
 
-## �🛠️ Technology Stack
+## � Technology Stack
 
 | Layer | Technologies |
 | :--- | :--- |
@@ -87,7 +87,7 @@ guardian-shield/
 
 ---
 
-## 📥 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - **Node.js**: v16.x or higher
@@ -116,7 +116,7 @@ If you prefer to run services individually:
 
 ---
 
-## 🔒 Configuration & Environment
+##  Configuration & Environment
 Create a `.env` file in `services/api` and `services/ml-engine` following the pattern below:
 
 ```env
@@ -132,7 +132,7 @@ JWT_SECRET=your_secure_random_string
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 We welcome contributions to Guardian Shield! 
 1. Fork the Project.
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
@@ -147,4 +147,4 @@ We welcome contributions to Guardian Shield!
 - **Security Notice**: Never commit your `.env` files or API keys to public repositories.
 
 ---
-*Created with ❤️ by the Guardian Shield Team*
+*Created with ❤️ by the Ishwari*
